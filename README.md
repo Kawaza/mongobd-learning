@@ -62,7 +62,7 @@ async function main () {
 
 main().catch(console.error);
 ```
-Now that is a lot so will quickly explain it, This conncects the database and we set up some constants so we can use them later for easy coding. We set up a query parameter that will return
+Now that is a lot so will quickly explain it, This connects the database and we can set up some constants so we can use them later for easy coding. We set up a query parameter that will return
 movies with less then 15 minutes and a options list just to organize the date so it displayes it nicely in the console.log.
 
 Then we query it throwing in "Query" and "options" and use the JS function to map it and return with just the title. This gets rid of all the fluff so we can just have the title.
@@ -72,7 +72,7 @@ Then we check if it returns more then 0 movies, and if it does we output the inf
 ## Other Functions
 Below are a lot of other functions we can use and call just like any ordinary javascript function to query diffrent information.
 
-This one below will Insert One into Database (ID is auto filled by mongodb and appears as __ID)
+This one below will Insert One into Database (ID is auto filled by mongodb and appears as __ID).
 ```sql
 # This is SQL
 (INSERT INTO movies VALUES (name, date, reviews)) 
@@ -85,7 +85,7 @@ async function createListing(client, newListing) {
 }
 ```
 
-This one will Find One in the database, used as a specific search (NOT CLOSE MATCH).
+This one will Find One in the database, this is used as a specific search and not a close match.
 ```sql
 # This is SQL
 (Select name from movies where name = "USER INPUT")
@@ -97,7 +97,7 @@ async function findOneListingByName(client, nameOfListing) {
 }
 ```
 
-This one grabs all from database just like
+This one grabs all the values from database.
 ```sql
 # This is SQL
 (Select * from movies)
@@ -109,14 +109,14 @@ async function grabAllListings(client) {
 }
 ```
 
-This one is the more advanced one and will return with diffrent where clauses
+This one is the more advanced one and will allow us to add diffrent where clauses.
 ```sql
 # This is SQL
 (Select * from airbnb where numberOfBedrooms > 'USER INPUT' AND numberOfBathrooms > 'USER INPUT' )
 ```
 ```js
 /* This is using mongodb */
-async function findListingsWithMinimumBedroomsBathroomsAndMostRecentReviews(client, {
+async function findListingsWithWhereClause(client, {
     minimumNumberOfBedrooms = 0,
     minimumNumberOfBathrooms = 0,
     maximumNumberOfResults = Number.MAX_SAFE_INTEGER
